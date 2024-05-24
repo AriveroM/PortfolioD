@@ -10,31 +10,31 @@ let warcelonaGifIndex = 0;
 let pokedexInterval, warcelonaInterval;
 
 const lizaargImages = [   
-    '../images/3.png',
-    '../images/4.png',
-    '../images/5.png',
-    '../images/6.png',
-    '../images/7.png',
-    '../images/8.png',
-    '../images/9.png',
-    '../images/10.png',
-    '../images/11.png',
-    '../images/12.png',
-    '../images/13.png',
-    '../images/14.png',
-    '../images/15.png',
-    '../images/16.png', 
-    '../images/17.png',
+    './images/3.png',
+    './images/4.png',
+    './images/5.png',
+    './images/6.png',
+    './images/7.png',
+    './images/8.png',
+    './images/9.png',
+    './images/10.png',
+    './images/11.png',
+    './images/12.png',
+    './images/13.png',
+    './images/14.png',
+    './images/15.png',
+    './images/16.png', 
+    './images/17.png',
 ];
 
 const pokedexGifs = [
-    '../images/PokedexGif.gif',
-    '../images/PokedexGif2.gif',
-    '../images/PokedexGif3.gif',
+    './images/PokedexGif.gif',
+    './images/PokedexGif2.gif',
+    './images/PokedexGif3.gif',
 ];
 
 const warcelonaGifs = [
-    '../images/Warcelona.gif',  
+    './images/Warcelona.gif',  
 ];
 
 const programLogos = [
