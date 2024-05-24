@@ -265,7 +265,7 @@ function createCarousel() {
                         data-brief="Warcelona is a roguelite game inspired by vampire survivors."
                         onclick="handleCarouselItemClick('Warcelona')">
                     </li>
-                    <li class="carousel__item" style="background-image: url('images/PokeApi.png');" 
+                    <li class="carousel__item" style="background-image: url('images/pokeApi.png');" 
                         data-title="Pokedex"
                         data-subtitle="Developer | Designer"
                         data-brief="A website for consulting the Pokedex and creating your own Pokemon team using the API."
