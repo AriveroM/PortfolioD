@@ -494,7 +494,7 @@ function showLizaargScreen() {
             <img src="${lizaargImages[lizaargScreenIndex]}" alt="Lizaarg Image">           
         </div>
         <div class="lizaarg-title" id="lizaarg-title">
-            <img src="../images/LizaargLogo.png" alt="Lizaarg Title">
+            <img src="./images/LizaargLogo.png" alt="Lizaarg Title">
         </div>
         <div class="navigation-buttons">
             <button id="prev-button" onclick="prevLizaargImage()"></button>
@@ -648,11 +648,11 @@ function showPokedexScreen() {
             </div>
         </div>
         <div class="stock-images" id="stock-images">
-            <img src="../images/mewtoCard.png" alt="Stock Image 1" class="stock-image">             
+            <img src="./images/mewtoCard.png" alt="Stock Image 1" class="stock-image">             
         </div>
         <div class="gitButton" id="gitButton">
             <a href="https://github.com/your-profile" target="_blank" class="gitButton-link">
-                <img src="../images/git.png" alt="GitHub" class="gitButton-img">
+                <img src="./images/git.png" alt="GitHub" class="gitButton-img">
             </a>
         </div>
     `;
@@ -697,7 +697,7 @@ function showWarcelonaScreen() {
             </div>
         </div>
         <div class="laia-images" id="laia-images">
-        <img src="../images/Laia.png" alt="Stock Image 1" class="laia-image">             
+        <img src="./images/Laia.png" alt="Stock Image 1" class="laia-image">             
         </div>
     `;
     document.body.insertAdjacentHTML('beforeend', warcelonaScreenHTML);
@@ -765,7 +765,7 @@ function showInfoScreen() {
                         <p>My goal is to become a full-stack web developer with expertise in front-end technologies. I am particularly interested in user experience (UX) and aim to create web applications that are not only functional but also provide an exceptional user experience.</p>
                     </div>
                     <div class="info-card square">
-                        <img src="../images/git.png" alt="GitHub">
+                        <img src="./images/git.png" alt="GitHub">
                     </div>
                 </div>
             </div>
