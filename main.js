@@ -735,7 +735,7 @@ function showInfoScreen() {
             <div class="info-screen" id="info-screen">
                 <div class="info-column">
                     <div class="info-card square">
-                        <img src="images/gmail.png" alt="Gmail">
+                        <img src="images/Gmail.png" alt="Gmail">
                     </div>    
                     <div class="info-card vertical" id="aboutMe">                        
                         <h2 class="hh">Skills</h2>
