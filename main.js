@@ -704,7 +704,7 @@ function showPokedexScreen() {
             <img src="./images/mewtoCard.png" alt="Stock Image 1" class="stock-image">             
         </div>
         <div class="gitButton" id="gitButton">
-            <a href="https://github.com/your-profile" target="_blank" class="gitButton-link">
+            <a href="https://ariverom.github.io/PokedexVue/" target="_blank" class="gitButton-link">
                 <img src="./images/git.png" alt="GitHub" class="gitButton-img">
             </a>
         </div>
