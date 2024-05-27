@@ -773,7 +773,7 @@ function showFoodLinkScreen() {
         </div>
         <div class="foodlink-screen" id="foodlink-screen">
             <div class="foodlink-container" id="foodlink-container">
-                <img src="./images/foodlinkGif.gif" alt="FoodLink Gif">
+                <img src="./images/foodlink.gif" alt="FoodLink Gif">
             </div>
         </div>
         <div class="gitButton" id="gitButton">
