@@ -9,7 +9,7 @@ let pokedexGifIndex = 0;
 let warcelonaGifIndex = 0;
 let pokedexInterval, warcelonaInterval;
 
-const lizaargImages = [   
+const lizaargImages = [
     './images/3.png',
     './images/4.png',
     './images/5.png',
@@ -23,7 +23,7 @@ const lizaargImages = [
     './images/13.png',
     './images/14.png',
     './images/15.png',
-    './images/16.png', 
+    './images/16.png',
     './images/17.png',
 ];
 
@@ -34,7 +34,7 @@ const pokedexGifs = [
 ];
 
 const warcelonaGifs = [
-    './images/Warcelona.gif',  
+    './images/Warcelona.gif',
 ];
 
 const programLogos = [
@@ -115,12 +115,15 @@ function init() {
         zoomOutSphere();
         removeCarousel();
         removeProjectTitleScreen();
-        removeLizaargScreen(); 
+        removeLizaargScreen();
         removePokedexScreen();
         removeWarcelonaScreen();
+        removeFoodLinkScreen();
+        removePomodoroScreen();
+        removeLaiaScreen();
         removeProgramasScreen();
         removeInfoScreen();
-        resetButtons(); 
+        resetButtons();
         resetTitleContainer(); // Reset title container to its initial state
     });
     document.getElementById('btn-info-corner').addEventListener('click', () => handleCornerButtonClick('Info'));
@@ -386,8 +389,7 @@ function showProjectInfo(title, subtitle, brief) {
 }
 
 function hideProjectInfo() {
-    gsap.to('.project-info', { opacity: 0, duration: 0.5});       
- 
+    gsap.to('.project-info', { opacity: 0, duration: 0.5 });       
     gsap.to('.project-brief', { opacity: 0, duration: 0.5 });
 }
 
@@ -426,6 +428,12 @@ function handleCarouselItemClick(projectName) {
         handlePokedexClick();
     } else if (projectName === 'Warcelona') {
         handleWarcelonaClick();
+    } else if (projectName === 'FoodLink') {
+        handleFoodLinkClick();
+    } else if (projectName === 'Pomodoro') {
+        handlePomodoroClick();
+    } else if (projectName === 'Ens il.lumines?') {
+        handleLaiaClick();
     } else {
         removeCarousel();
         hideProjectInfo();
@@ -433,7 +441,7 @@ function handleCarouselItemClick(projectName) {
             duration: 1,
             y: 100,
             opacity: 0,
-            ease: "bounce.in",        
+            ease: "bounce.in",
             onComplete: () => {
                 gsap.to('.title-container', {
                     duration: 1,
@@ -478,7 +486,7 @@ function handleLizaargClick() {
             gsap.to('.title-container', {
                 duration: 1,
                 y: -1000, // Move out of the screen
-                opacity: 0, // Set opacity to 0
+                opacity: 0, // Set opacity to 0,
                 ease: "bounce.out",
                 onComplete: () => {
                     showLizaargScreen();
@@ -499,6 +507,11 @@ function showLizaargScreen() {
         <div class="navigation-buttons">
             <button id="prev-button" onclick="prevLizaargImage()"></button>
             <button id="next-button" onclick="nextLizaargImage()"></button>
+        </div>
+        <div class="gitButton" id="gitButton">
+        <a href="https://github.com/AriveroM/Lizaard" target="_blank" class="gitButton-link">
+            <img src="./images/git.png" alt="GitHub" class="gitButton-img">
+        </a>
         </div>
     `;
     document.body.insertAdjacentHTML('beforeend', lizaargScreenHTML);
@@ -539,6 +552,9 @@ function handleCornerButtonClick(title) {
     removeLizaargScreen(); 
     removePokedexScreen();
     removeWarcelonaScreen();
+    removeFoodLinkScreen();
+    removePomodoroScreen();
+    removeLaiaScreen();
     removeProgramasScreen();
     removeInfoScreen();
     removeCarousel(); // Remove the carousel when any corner button is clicked
@@ -549,9 +565,11 @@ function handleCornerButtonClick(title) {
 function removeLizaargScreen() {
     const lizaargScreen = document.getElementById('lizaarg-screen');
     const lizaargTitle = document.getElementById('lizaarg-title');
+    const gitImage = document.getElementById('gitButton');
     if (lizaargScreen) {
         lizaargScreen.remove();
         lizaargTitle.remove();
+        gitImage.remove();
     }
     const navigationButtons = document.querySelector('.navigation-buttons');
     if (navigationButtons) {
@@ -577,12 +595,47 @@ function removeWarcelonaScreen() {
     const warcelonaScreen = document.getElementById('warcelona-screen');
     const warcelonaTitle = document.getElementById('warcelona-title');
     const laiaImage = document.getElementById('laia-images');
+    const gitImage = document.getElementById('gitButton');    
     if (warcelonaScreen) {
         warcelonaScreen.remove();
         warcelonaTitle.remove();
         laiaImage.remove();
+        gitImage.remove();
     }
     clearInterval(warcelonaInterval); // Clear interval to avoid mixing
+}
+
+function removeFoodLinkScreen() {
+    const foodLinkScreen = document.getElementById('foodlink-screen');
+    const foodLinkTitle = document.getElementById('foodlink-title');
+    const gitImage = document.getElementById('gitButton');
+    if (foodLinkScreen) {
+        foodLinkScreen.remove();
+        foodLinkTitle.remove();
+        gitImage.remove();
+    }
+}
+
+function removePomodoroScreen() {
+    const pomodoroScreen = document.getElementById('pomodoro-screen');
+    const pomodoroTitle = document.getElementById('pomodoro-title');
+    const gitImage = document.getElementById('gitButton');    
+    if (pomodoroScreen) {
+        pomodoroScreen.remove();
+        pomodoroTitle.remove();
+        gitImage.remove();
+    }
+}
+
+function removeLaiaScreen() {
+    const laiaScreen = document.getElementById('laia-screen');
+    const laiaTitle = document.getElementById('laia-title');
+    const gitImage = document.getElementById('gitButton');
+    if (laiaScreen) {
+        laiaScreen.remove();
+        laiaTitle.remove();
+        gitImage.remove();
+    }
 }
 
 function removeProgramasScreen() {
@@ -627,7 +680,7 @@ function handlePokedexClick() {
             gsap.to('.title-container', {
                 duration: 1,
                 y: -1000, // Move out of the screen
-                opacity: 0, // Set opacity to 0
+                opacity: 0, // Set opacity to 0,
                 ease: "bounce.out",
                 onComplete: () => {
                     showPokedexScreen();
@@ -676,7 +729,7 @@ function handleWarcelonaClick() {
             gsap.to('.title-container', {
                 duration: 1,
                 y: -1000, // Move out of the screen
-                opacity: 0, // Set opacity to 0
+                opacity: 0, // Set opacity to 0,
                 ease: "bounce.out",
                 onComplete: () => {
                     showWarcelonaScreen();
@@ -699,6 +752,11 @@ function showWarcelonaScreen() {
         <div class="laia-images" id="laia-images">
         <img src="./images/Laia.png" alt="Stock Image 1" class="laia-image">             
         </div>
+        <div class="gitButton" id="gitButton">
+        <a href="https://ariverom.github.io" target="_blank" class="gitButton-link">
+            <img src="./images/git.png" alt="GitHub" class="gitButton-img">
+        </a>
+    </div>
     `;
     document.body.insertAdjacentHTML('beforeend', warcelonaScreenHTML);
 
@@ -706,6 +764,141 @@ function showWarcelonaScreen() {
     warcelonaScreen.addEventListener('mousemove', handleMouseMove);
     warcelonaScreen.addEventListener('mouseleave', resetTilt);
     startWarcelonaGifRotation();
+}
+
+function showFoodLinkScreen() {
+    const foodLinkScreenHTML = `
+        <div class="foodlink-title" id="foodlink-title">
+            <h1>FoodLink</h1>
+        </div>
+        <div class="foodlink-screen" id="foodlink-screen">
+            <div class="foodlink-container" id="foodlink-container">
+                <img src="./images/foodlinkGif.gif" alt="FoodLink Gif">
+            </div>
+        </div>
+        <div class="gitButton" id="gitButton">
+        <a href="https://ariverom.github.io" target="_blank" class="gitButton-link">
+            <img src="./images/git.png" alt="GitHub" class="gitButton-img">
+        </a>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', foodLinkScreenHTML);
+
+    const foodlinkScreen = document.getElementById('foodlink-screen');
+    foodlinkScreen.addEventListener('mousemove', handleMouseMove);
+    foodlinkScreen.addEventListener('mouseleave', resetTilt);
+}
+
+function handleFoodLinkClick() {
+    removeCarousel();
+    hideProjectInfo();
+    gsap.to('.title-container', {
+        duration: 1,
+        y: 100,
+        opacity: 0,
+        ease: "bounce.in",
+        onComplete: () => {
+            gsap.to('.title-container', {
+                duration: 1,
+                y: -1000, // Move out of the screen
+                opacity: 0, // Set opacity to 0,
+                ease: "bounce.out",
+                onComplete: () => {
+                    showFoodLinkScreen();
+                }
+            });
+        }
+    });
+}
+
+function showPomodoroScreen() {
+    const pomodoroScreenHTML = `
+        <div class="pomodoro-title" id="pomodoro-title">
+            <h1>Pomodoro</h1>
+        </div>
+        <div class="pomodoro-screen" id="pomodoro-screen">
+            <div class="pomodoro-container" id="pomodoro-container">
+                <img src="./images/pomodoro.gif" alt="Pomodoro Gif">
+            </div>
+        </div>
+        <div class="gitButton" id="gitButton">
+        <a href="https://ariverom.github.io/Pomodoro/" target="_blank" class="gitButton-link">
+            <img src="./images/git.png" alt="GitHub" class="gitButton-img">
+        </a>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', pomodoroScreenHTML);
+
+    const pomodoroScreen = document.getElementById('pomodoro-screen');
+    pomodoroScreen.addEventListener('mousemove', handleMouseMove);
+    pomodoroScreen.addEventListener('mouseleave', resetTilt);
+}
+
+function handlePomodoroClick() {
+    removeCarousel();
+    hideProjectInfo();
+    gsap.to('.title-container', {
+        duration: 1,
+        y: 100,
+        opacity: 0,
+        ease: "bounce.in",
+        onComplete: () => {
+            gsap.to('.title-container', {
+                duration: 1,
+                y: -1000, // Move out of the screen
+                opacity: 0, // Set opacity to 0,
+                ease: "bounce.out",
+                onComplete: () => {
+                    showPomodoroScreen();
+                }
+            });
+        }
+    });
+}
+
+function showLaiaScreen() {
+    const laiaScreenHTML = `
+        <div class="laia-title" id="laia-title">
+            <h1>Ens il.lumines?</h1>
+        </div>
+        <div class="laia-screen" id="laia-screen">
+            <div class="laia-container" id="laia-container">
+                <img src="./images/tierra.gif" alt="Laia Gif">
+            </div>
+        </div>
+        <div class="gitButton" id="gitButton">
+        <a href="https://github.com/jeansterj/laiaGame" target="_blank" class="gitButton-link">
+            <img src="./images/git.png" alt="GitHub" class="gitButton-img">
+        </a>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', laiaScreenHTML);
+
+    const laiaScreen = document.getElementById('laia-screen');
+    laiaScreen.addEventListener('mousemove', handleMouseMove);
+    laiaScreen.addEventListener('mouseleave', resetTilt);
+}
+
+function handleLaiaClick() {
+    removeCarousel();
+    hideProjectInfo();
+    gsap.to('.title-container', {
+        duration: 1,
+        y: 100,
+        opacity: 0,
+        ease: "bounce.in",
+        onComplete: () => {
+            gsap.to('.title-container', {
+                duration: 1,
+                y: -1000, // Move out of the screen
+                opacity: 0, // Set opacity to 0,
+                ease: "bounce.out",
+                onComplete: () => {
+                    showLaiaScreen();
+                }
+            });
+        }
+    });
 }
 
 function showProgramasScreen() {
@@ -735,7 +928,9 @@ function showInfoScreen() {
             <div class="info-screen" id="info-screen">
                 <div class="info-column">
                     <div class="info-card square">
-                        <img src="images/Gmail.png" alt="Gmail">
+                        <a href="mailto:sariveromarin@gmail.com?subject=Asunto%20del%20Correo&body=Este%20es%20el%20cuerpo%20del%20correo.">
+                            <img src="images/Gmail.png" alt="Gmail">
+                        </a>
                     </div>    
                     <div class="info-card vertical" id="aboutMe">                        
                         <h2 class="hh">Skills</h2>
@@ -743,7 +938,7 @@ function showInfoScreen() {
                         <p class="pa">Disciplined</p>
                         <p class="pa">Team-worker</p>
                         <p class="pa">Problem-solver</p>
-                        <p class="pa">Creatibe thinker</p>
+                        <p class="pa">Creative thinker</p>
                         <p class="pa">Adaptable</p>
                         <p class="pa">Strong communicator</p>
                         <p class="pa">Detail-oriented</p>
@@ -755,17 +950,19 @@ function showInfoScreen() {
                         <p>Hello! I'm a DAW student passionate about web development, design, and front-end technologies. I enjoy creating visually appealing and user-friendly interfaces. I have a strong foundation in programming and a keen eye for detail, which helps me create functional and aesthetically pleasing web applications.</p>
                     </div>               
                     <div class="info-card horizontal" id="education">
-                        <h2  class="hh">Education</h2>
+                        <h2 class="hh">Education</h2>
                         <p>I am currently pursuing a degree in Web Application Development (DAW). I have also engaged in self-learning to deepen my understanding of new technologies and frameworks that are not covered in my formal education.</p>
                     </div>
                 </div>
                 <div class="info-column">             
                     <div class="info-card vertical" id="goals">
-                        <h2  class="hh">Goals</h2>
+                        <h2 class="hh">Goals</h2>
                         <p>My goal is to become a full-stack web developer with expertise in front-end technologies. I am particularly interested in user experience (UX) and aim to create web applications that are not only functional but also provide an exceptional user experience.</p>
                     </div>
                     <div class="info-card square">
-                        <img src="./images/git.png" alt="GitHub">
+                        <a href="https://github.com/AriveroM" target="_blank">
+                            <img src="./images/git.png" alt="GitHub">
+                        </a>
                     </div>
                 </div>
             </div>
