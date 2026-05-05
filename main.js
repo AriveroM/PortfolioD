@@ -47,7 +47,12 @@ const programLogos = [
     { src: './images/php.png', alt: 'PHP' },
     { src: './images/three.png', alt: 'Three.js' },
     { src: './images/photo.png', alt: 'Photoshop' },
-    { src: './images/ae.png', alt: 'Adobe After Effects' }
+    { src: './images/ae.png', alt: 'After Effects' },
+    { src: './images/illustrator.svg', alt: 'Illustrator' },
+    { src: './images/premiere.svg', alt: 'Premiere Pro' },
+    { src: './images/indesign.svg', alt: 'InDesign' },
+    { src: './images/xd.svg', alt: 'Adobe XD' },
+    { src: './images/figma.svg', alt: 'Figma' }
 ];
 
 init();
@@ -109,8 +114,8 @@ function init() {
 
     // Botones
     document.getElementById('btn-info').addEventListener('click', () => zoomIntoSphere('Info'));
-    document.getElementById('btn-proyectos').addEventListener('click', () => zoomIntoSphere('Proyectos'));
-    document.getElementById('btn-programas').addEventListener('click', () => zoomIntoSphere('Programas'));
+    document.getElementById('btn-proyectos').addEventListener('click', () => zoomIntoSphere('Projects'));
+    document.getElementById('btn-programas').addEventListener('click', () => zoomIntoSphere('Programs'));
     document.getElementById('btn-home').addEventListener('click', () => {
         zoomOutSphere();
         removeCarousel();
@@ -127,8 +132,8 @@ function init() {
         resetTitleContainer(); // Reset title container to its initial state
     });
     document.getElementById('btn-info-corner').addEventListener('click', () => handleCornerButtonClick('Info'));
-    document.getElementById('btn-proyectos-corner').addEventListener('click', () => handleCornerButtonClick('Proyectos'));
-    document.getElementById('btn-programas-corner').addEventListener('click', () => handleCornerButtonClick('Programas'));
+    document.getElementById('btn-proyectos-corner').addEventListener('click', () => handleCornerButtonClick('Projects'));
+    document.getElementById('btn-programas-corner').addEventListener('click', () => handleCornerButtonClick('Programs'));
 }
 
 function onWindowResize() {
@@ -247,9 +252,9 @@ function showTitle(title) {
     titleElement.textContent = title;
     document.querySelector('.title-container').style.display = 'block';
     gsap.fromTo('.title-container', { opacity: 0 }, { duration: 1, opacity: 1, onComplete: () => {
-        if (title === 'Proyectos') {
+        if (title === 'Projects') {
             createCarousel();
-        } else if (title === 'Programas') {
+        } else if (title === 'Programs') {
             showProgramasScreen();
         } else if (title === 'Info') {
             showInfoScreen();
@@ -608,11 +613,11 @@ function removeWarcelonaScreen() {
 function removeFoodLinkScreen() {
     const foodLinkScreen = document.getElementById('foodlink-screen');
     const foodLinkTitle = document.getElementById('foodlink-title');
-    const gitImage = document.getElementById('gitButton');
+    const socialButtons = document.getElementById('socialButtons');
     if (foodLinkScreen) {
         foodLinkScreen.remove();
         foodLinkTitle.remove();
-        gitImage.remove();
+        if (socialButtons) socialButtons.remove();
     }
 }
 
@@ -669,25 +674,7 @@ function resetButtons() {
 }
 
 function handlePokedexClick() {
-    removeCarousel();
-    hideProjectInfo();
-    gsap.to('.title-container', {
-        duration: 1,
-        y: 100,
-        opacity: 0,
-        ease: "bounce.in",
-        onComplete: () => {
-            gsap.to('.title-container', {
-                duration: 1,
-                y: -1000, // Move out of the screen
-                opacity: 0, // Set opacity to 0,
-                ease: "bounce.out",
-                onComplete: () => {
-                    showPokedexScreen();
-                }
-            });
-        }
-    });
+    window.open('https://ariverom.github.io/PokedexJ/', '_blank');
 }
 
 function showPokedexScreen() {
@@ -718,25 +705,7 @@ function showPokedexScreen() {
 }
 
 function handleWarcelonaClick() {
-    removeCarousel();
-    hideProjectInfo();
-    gsap.to('.title-container', {
-        duration: 1,
-        y: 100,
-        opacity: 0,
-        ease: "bounce.in",
-        onComplete: () => {
-            gsap.to('.title-container', {
-                duration: 1,
-                y: -1000, // Move out of the screen
-                opacity: 0, // Set opacity to 0,
-                ease: "bounce.out",
-                onComplete: () => {
-                    showWarcelonaScreen();
-                }
-            });
-        }
-    });
+    window.open('https://ariverom.github.io', '_blank');
 }
 
 function showWarcelonaScreen() {
@@ -776,10 +745,17 @@ function showFoodLinkScreen() {
                 <img src="./images/foodlink.gif" alt="FoodLink Gif">
             </div>
         </div>
-        <div class="gitButton" id="gitButton">
-        <a href="https://ariverom.github.io" target="_blank" class="gitButton-link">
-            <img src="./images/git.png" alt="GitHub" class="gitButton-img">
-        </a>
+        <div class="social-buttons" id="socialButtons">
+            <div class="gitButton">
+                <a href="https://ariverom.github.io" target="_blank" class="gitButton-link">
+                    <img src="./images/git.png" alt="GitHub" class="gitButton-img">
+                </a>
+            </div>
+            <div class="gitButton">
+                <a href="https://www.figma.com/design/hqw4YOPnQWNbxBjMhWi1dI/app-riders-solidarios?node-id=0-1&p=f&t=RKuD5tRANth3EB5z-0" target="_blank" class="gitButton-link">
+                    <img src="./images/figma.svg" alt="Figma" class="gitButton-img">
+                </a>
+            </div>
         </div>
     `;
     document.body.insertAdjacentHTML('beforeend', foodLinkScreenHTML);
@@ -835,25 +811,7 @@ function showPomodoroScreen() {
 }
 
 function handlePomodoroClick() {
-    removeCarousel();
-    hideProjectInfo();
-    gsap.to('.title-container', {
-        duration: 1,
-        y: 100,
-        opacity: 0,
-        ease: "bounce.in",
-        onComplete: () => {
-            gsap.to('.title-container', {
-                duration: 1,
-                y: -1000, // Move out of the screen
-                opacity: 0, // Set opacity to 0,
-                ease: "bounce.out",
-                onComplete: () => {
-                    showPomodoroScreen();
-                }
-            });
-        }
-    });
+    window.open('https://ariverom.github.io/Pomodoro/', '_blank');
 }
 
 function showLaiaScreen() {
@@ -904,7 +862,6 @@ function handleLaiaClick() {
 function showProgramasScreen() {
     const programasScreenHTML = `
         <div class="programas-title" id="programas-title">
-            <h1>Programas</h1>
         </div>        
         <div class="programas-screen" id="programas-screen">        
             <div class="card-container" id="card-container">
@@ -947,17 +904,17 @@ function showInfoScreen() {
                 <div class="info-column">
                     <div class="info-card vertical" id="skills">
                         <h2 class="hh">About Me</h2>
-                        <p>Hello! I'm a DAW student passionate about web development, design, and front-end technologies. I enjoy creating visually appealing and user-friendly interfaces. I have a strong foundation in programming and a keen eye for detail, which helps me create functional and aesthetically pleasing web applications.</p>
+                        <p>Hello! I'm a Web Developer and Graphic Designer passionate about front-end technologies, visual communication, and creating meaningful digital experiences. I enjoy building interfaces that are both functional and visually compelling, combining my programming skills with a strong eye for design.</p>
                     </div>               
                     <div class="info-card horizontal" id="education">
                         <h2 class="hh">Education</h2>
-                        <p>I am currently pursuing a degree in Web Application Development (DAW). I have also engaged in self-learning to deepen my understanding of new technologies and frameworks that are not covered in my formal education.</p>
+                        <p>I hold a degree in Web Application Development (DAW) and a degree in Video Game Design. I have also complemented my formal education with self-directed learning to stay up to date with new technologies and frameworks.</p>
                     </div>
                 </div>
                 <div class="info-column">             
                     <div class="info-card vertical" id="goals">
                         <h2 class="hh">Goals</h2>
-                        <p>My goal is to become a full-stack web developer with expertise in front-end technologies. I am particularly interested in user experience (UX) and aim to create web applications that are not only functional but also provide an exceptional user experience.</p>
+                        <p>My goal is to grow as both a web developer and a graphic designer, while specialising in UX/UI design. I'm particularly drawn to crafting intuitive, user-centred experiences — but without losing sight of the technical and visual craftsmanship that make a product truly stand out.</p>
                     </div>
                     <div class="info-card square">
                         <a href="https://github.com/AriveroM" target="_blank">
